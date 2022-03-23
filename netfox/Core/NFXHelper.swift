@@ -188,7 +188,7 @@ extension URLRequest {
             command.append("-d \u{22}\(body)\u{22}")
         }
         
-        return command.joined(separator: " ")
+        return command.joined(separator: " \n")
     }
 }
 

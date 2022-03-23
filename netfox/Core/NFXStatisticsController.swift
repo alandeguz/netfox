@@ -27,7 +27,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-class NFXStatisticsController: NFXGenericController {
+class NFXStatisticsController: NFXGenericController, NFXCommon {
     var totalModels: Int = 0
 
     var successfulRequests: Int = 0

@@ -275,30 +275,7 @@ class NFXDetailsController_iOS: NFXDetailsController, MFMailComposeViewControlle
     }
     
     func shareLog(full: Bool, sender: UIBarButtonItem) {
-        var tempString = String()
-
-        tempString += "** INFO **\n"
-        tempString += "\(getInfoStringFromObject(selectedModel).string)\n\n"
-
-        tempString += "** REQUEST **\n"
-        tempString += "\(getRequestStringFromObject(selectedModel).string)\n\n"
-
-        tempString += "** RESPONSE **\n"
-        tempString += "\(getResponseStringFromObject(selectedModel).string)\n\n"
-
-        tempString += "logged via netfox - [https://github.com/kasketis/netfox]\n"
-
-        if full {
-            let requestFileURL = selectedModel.getRequestBodyFileURL()
-            if let requestFileData = try? String(contentsOf: requestFileURL, encoding: .utf8) {
-                tempString += requestFileData
-            }
-
-            let responseFileURL = selectedModel.getResponseBodyFileURL()
-            if let responseFileData = try? String(contentsOf: responseFileURL, encoding: .utf8) {
-                tempString += responseFileData
-            }
-        }
+        let tempString = generateLog(full: full, model: selectedModel)
         
         displayShareSheet(shareContent: tempString, sender: sender)
     }
