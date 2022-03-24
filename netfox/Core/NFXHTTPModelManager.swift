@@ -38,6 +38,7 @@ final class NFXHTTPModelManager: NSObject {
     func add(_ obj: NFXHTTPModel) {
         DispatchQueue.main.async {
             self.models.insert(obj, at: 0)
+            NFXLocalLog.shared.log(obj)
         }
     }
     
